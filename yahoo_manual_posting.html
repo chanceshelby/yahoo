@@ -1,0 +1,2879 @@
+<style>
+button {
+  padding: 5px;
+  border: 2px solid #fff;
+  background-color: #e6e6e6;
+  color: #000;
+  width: 150px;
+  float: left;
+}
+br {
+  padding: -10px;
+}
+* {
+  font-family: arial;
+}
+hr {
+  width: 20%;
+  float: left;
+}
+</style>
+
+
+<!DOCTYPE html>
+
+<html>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+
+<h2>Manual Posts v1.0</h2>
+
+<p id="demo"></p>
+
+<script>
+const links = ['https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-amc-entertainment-holdings-incamc/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-vinco-ventures-incbbig/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-tesla-inctsla/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-meta-materials-incmmat/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-cenntro-electric-group-ltdnakd/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-digital-world-acquisition-corpdwac/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-robinhood-markets-inchood/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-reliance-global-group-increli/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-biocryst-pharmaceuticals-inc-bcrx/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-tdh-holdings-incpetz/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-lucid-group-inclcid/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-camber-energy-inccei/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-clover-health-investments-corpclov/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-tilray-inctlry/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-rivian-automotive-incrivn/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-sofi-technologies-incsofi/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-biofrontera-incbfri/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-phunware-incphun/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-novavax-inc-nvax/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-lordstown-motors-corpride/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-xpresspa-group-incxspa/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-exela-technologies-incxela/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-sundial-growers-incsndl/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-gamestop-corp-gme/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-advanced-micro-devices-inc-amd/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-american-virtual-cloud-technologies-incavct/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-gores-guggenheim-incggpi/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-ocugen-incocgn/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-gevo-incgevo/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-farmmi-incfami/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-draftkings-incdkng/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-vaxart-incvxrt/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-cf-acquisition-corp-vicfvi/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-apple-incaapl/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-fubotv-incfubo/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-contextlogic-incwish/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-tsr-inctsri/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-progenity-incprog/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-sorrento-therapeutics-incsrne/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-microvision-inc-mvis/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-palantir-technologies-incpltr/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-nvidia-corporationnvda/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-genius-brands-international-incgnus/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-moderna-incmrna/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-virgin-galactic-holdings-incspce/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-bakkt-holdings-incbkkt/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-castor-maritime-incctrm/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-social-capital-hedosophia-hldgs-corp-viipof/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-blackberry-ltdbb/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-tellurian-inctell/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-klx-energy-services-holdings-incklxe/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-zynga-incznga/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-beyond-meat-incbynd/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-pasithea-therapeutics-corpktta/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-fisker-incfsr/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-amazon-com-inc-amzn/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-alteryx-incayx/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-fuelcell-energy-incfcel/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-zomedica-corpzom/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-sphere-3d-corpany/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-roku-incroku/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-btcs-incbtcs/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-intel-corporationintc/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-lithium-americas-corplac/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-nikola-corpnkla/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-insignia-systems-inc-isig/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-alpine-4-holdings-incalpp/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-paypal-holdings-incpypl/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-longeveron-inclgvn/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-aurinia-pharmaceuticals-incauph/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-huadi-international-group-cohudi/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-ford-motor-companyf/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-carnival-corpccl/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-180-life-sciences-corpatnf/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-coinbase-global-inccoin/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-pfizer-inc-pfe/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-boeing-coba/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-splash-beverage-group-incsbev/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-affirm-holdings-incafrm/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-roblox-corprblx/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-smiledirectclub-incsdc/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-viacomcbs-inc-class-bviac/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-aterian-incater/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-bionano-genomics-incbngo/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-seachange-international-incseac/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-inovio-pharmaceuticals-incino/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-ibio-incibio/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-hyliion-holdings-corphyln/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-cleanspark-incclsk/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-adamis-pharmaceuticals-corpadmp/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-marin-software-incmrin/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-bone-biologics-corpbblg/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-skillz-incsklz/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-peloton-interactive-incpton/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-black-diamond-therapeutics-incbdtx/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-stran-company-incstrn/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-phio-pharmaceuticals-corpphio/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-bitfarms-ltdbitf/', 'https://wallstreetfacts.com/2022/01/11/here-is-the-latest-data-for-plug-power-incplug/'];
+
+const ticker = ['AMC', 'BBIG', 'TSLA', 'MMAT', 'NAKD', 'DWAC', 'HOOD', 'RELI', 'BCRX', 'PETZ', 'LCID', 'CEI', 'CLOV', 'TLRY', 'RIVN', 'SOFI', 'BFRI', 'PHUN', 'NVAX', 'RIDE', 'XSPA', 'XELA', 'SNDL', 'GME', 'AMD', 'AVCT', 'GGPI', 'OCGN', 'GEVO', 'FAMI', 'DKNG', 'VXRT', 'CFVI', 'AAPL', 'FUBO', 'WISH', 'TSRI', 'PROG', 'SRNE', 'MVIS', 'PLTR', 'NVDA', 'GNUS', 'MRNA', 'SPCE', 'BKKT', 'CTRM', 'IPOF', 'BB', 'TELL', 'KLXE', 'ZNGA', 'BYND', 'KTTA', 'FSR', 'AMZN', 'AYX', 'FCEL', 'ZOM', 'ANY', 'ROKU', 'BTCS', 'INTC', 'LAC', 'NKLA', 'ISIG', 'ALPP', 'PYPL', 'LGVN', 'AUPH', 'HUDI', 'F', 'CCL', 'ATNF', 'COIN', 'PFE', 'BA', 'SBEV', 'AFRM', 'RBLX', 'SDC', 'VIAC', 'ATER', 'BNGO', 'SEAC', 'INO', 'IBIO', 'HYLN', 'CLSK', 'ADMP', 'MRIN', 'BBLG', 'SKLZ', 'PTON', 'BDTX', 'STRN', 'PHIO', 'BITF', 'PLUG'];
+
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+
+function myFunction1() {
+  var copyText = document.getElementById("myInput1");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip1");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL1() {
+  var copyText = document.getElementById("myInput1");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip1");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc1() {
+  var tooltip = document.getElementById("myTooltip1");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+function myFunction2() {
+  var copyText = document.getElementById("myInput2");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip2");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL2() {
+  var copyText = document.getElementById("myInput2");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip2");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc2() {
+  var tooltip = document.getElementById("myTooltip2");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+function myFunction3() {
+  var copyText = document.getElementById("myInput3");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip3");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL3() {
+  var copyText = document.getElementById("myInput3");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip3");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc3() {
+  var tooltip = document.getElementById("myTooltip3");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+function myFunction4() {
+  var copyText = document.getElementById("myInput4");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip4");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL4() {
+  var copyText = document.getElementById("myInput4");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip4");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc4() {
+  var tooltip = document.getElementById("myTooltip4");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+function myFunction5() {
+  var copyText = document.getElementById("myInput5");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip5");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL5() {
+  var copyText = document.getElementById("myInput5");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip5");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc5() {
+  var tooltip = document.getElementById("myTooltip5");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction6() {
+  var copyText = document.getElementById("myInput6");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip6");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL6() {
+  var copyText = document.getElementById("myInput6");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip6");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc6() {
+  var tooltip = document.getElementById("myTooltip6");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction7() {
+  var copyText = document.getElementById("myInput7");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip7");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL7() {
+  var copyText = document.getElementById("myInput7");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip7");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc7() {
+  var tooltip = document.getElementById("myTooltip7");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction8() {
+  var copyText = document.getElementById("myInput8");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip8");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL8() {
+  var copyText = document.getElementById("myInput8");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip8");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc8() {
+  var tooltip = document.getElementById("myTooltip8");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction9() {
+  var copyText = document.getElementById("myInput9");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip9");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL9() {
+  var copyText = document.getElementById("myInput9");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip9");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc9() {
+  var tooltip = document.getElementById("myTooltip9");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction10() {
+  var copyText = document.getElementById("myInput10");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip10");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL10() {
+  var copyText = document.getElementById("myInput10");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip10");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc10() {
+  var tooltip = document.getElementById("myTooltip10");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction11() {
+  var copyText = document.getElementById("myInput11");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip11");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL11() {
+  var copyText = document.getElementById("myInput11");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip11");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc11() {
+  var tooltip = document.getElementById("myTooltip11");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction12() {
+  var copyText = document.getElementById("myInput12");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip12");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL12() {
+  var copyText = document.getElementById("myInput12");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip12");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc12() {
+  var tooltip = document.getElementById("myTooltip12");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction13() {
+  var copyText = document.getElementById("myInput13");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip13");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL13() {
+  var copyText = document.getElementById("myInput13");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip13");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc13() {
+  var tooltip = document.getElementById("myTooltip13");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction14() {
+  var copyText = document.getElementById("myInput14");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip14");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL14() {
+  var copyText = document.getElementById("myInput14");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip14");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc14() {
+  var tooltip = document.getElementById("myTooltip14");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction15() {
+  var copyText = document.getElementById("myInput15");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip15");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL15() {
+  var copyText = document.getElementById("myInput15");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip15");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc15() {
+  var tooltip = document.getElementById("myTooltip15");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction16() {
+  var copyText = document.getElementById("myInput16");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip16");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL16() {
+  var copyText = document.getElementById("myInput16");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip16");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc16() {
+  var tooltip = document.getElementById("myTooltip16");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction17() {
+  var copyText = document.getElementById("myInput17");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip17");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL17() {
+  var copyText = document.getElementById("myInput17");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip17");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc17() {
+  var tooltip = document.getElementById("myTooltip17");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction18() {
+  var copyText = document.getElementById("myInput18");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip18");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL18() {
+  var copyText = document.getElementById("myInput18");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip18");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc18() {
+  var tooltip = document.getElementById("myTooltip18");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction19() {
+  var copyText = document.getElementById("myInput19");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip19");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL19() {
+  var copyText = document.getElementById("myInput19");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip19");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc19() {
+  var tooltip = document.getElementById("myTooltip19");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction20() {
+  var copyText = document.getElementById("myInput20");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip20");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL20() {
+  var copyText = document.getElementById("myInput20");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip20");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc20() {
+  var tooltip = document.getElementById("myTooltip20");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction21() {
+  var copyText = document.getElementById("myInput21");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip21");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL21() {
+  var copyText = document.getElementById("myInput21");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip21");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc21() {
+  var tooltip = document.getElementById("myTooltip21");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction22() {
+  var copyText = document.getElementById("myInput22");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip22");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL22() {
+  var copyText = document.getElementById("myInput22");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip22");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc22() {
+  var tooltip = document.getElementById("myTooltip22");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction23() {
+  var copyText = document.getElementById("myInput23");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip23");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL23() {
+  var copyText = document.getElementById("myInput23");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip23");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc23() {
+  var tooltip = document.getElementById("myTooltip23");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction24() {
+  var copyText = document.getElementById("myInput24");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip24");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL24() {
+  var copyText = document.getElementById("myInput24");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip24");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc24() {
+  var tooltip = document.getElementById("myTooltip24");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction25() {
+  var copyText = document.getElementById("myInput25");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip25");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL25() {
+  var copyText = document.getElementById("myInput25");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip25");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc25() {
+  var tooltip = document.getElementById("myTooltip25");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction26() {
+  var copyText = document.getElementById("myInput26");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip26");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL26() {
+  var copyText = document.getElementById("myInput26");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip26");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc26() {
+  var tooltip = document.getElementById("myTooltip26");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction27() {
+  var copyText = document.getElementById("myInput27");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip27");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL27() {
+  var copyText = document.getElementById("myInput27");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip27");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc27() {
+  var tooltip = document.getElementById("myTooltip27");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction28() {
+  var copyText = document.getElementById("myInput28");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip28");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL28() {
+  var copyText = document.getElementById("myInput28");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip28");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc28() {
+  var tooltip = document.getElementById("myTooltip28");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction29() {
+  var copyText = document.getElementById("myInput29");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip29");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL29() {
+  var copyText = document.getElementById("myInput29");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip29");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc29() {
+  var tooltip = document.getElementById("myTooltip29");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction30() {
+  var copyText = document.getElementById("myInput30");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip30");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL30() {
+  var copyText = document.getElementById("myInput30");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip30");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc30() {
+  var tooltip = document.getElementById("myTooltip30");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction31() {
+  var copyText = document.getElementById("myInput31");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip31");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL31() {
+  var copyText = document.getElementById("myInput31");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip31");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc31() {
+  var tooltip = document.getElementById("myTooltip31");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction32() {
+  var copyText = document.getElementById("myInput32");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip32");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL32() {
+  var copyText = document.getElementById("myInput32");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip32");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc32() {
+  var tooltip = document.getElementById("myTooltip32");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction33() {
+  var copyText = document.getElementById("myInput33");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip33");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL33() {
+  var copyText = document.getElementById("myInput33");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip33");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc33() {
+  var tooltip = document.getElementById("myTooltip33");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction34() {
+  var copyText = document.getElementById("myInput34");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip34");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL34() {
+  var copyText = document.getElementById("myInput34");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip34");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc34() {
+  var tooltip = document.getElementById("myTooltip34");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction35() {
+  var copyText = document.getElementById("myInput35");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip35");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL35() {
+  var copyText = document.getElementById("myInput35");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip35");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc35() {
+  var tooltip = document.getElementById("myTooltip35");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction36() {
+  var copyText = document.getElementById("myInput36");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip36");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL36() {
+  var copyText = document.getElementById("myInput36");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip36");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc36() {
+  var tooltip = document.getElementById("myTooltip36");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction37() {
+  var copyText = document.getElementById("myInput37");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip37");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL37() {
+  var copyText = document.getElementById("myInput37");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip37");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc37() {
+  var tooltip = document.getElementById("myTooltip37");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction38() {
+  var copyText = document.getElementById("myInput38");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip38");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL38() {
+  var copyText = document.getElementById("myInput38");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip38");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc38() {
+  var tooltip = document.getElementById("myTooltip38");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction39() {
+  var copyText = document.getElementById("myInput39");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip39");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL39() {
+  var copyText = document.getElementById("myInput39");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip39");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc39() {
+  var tooltip = document.getElementById("myTooltip39");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction40() {
+  var copyText = document.getElementById("myInput40");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip40");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL40() {
+  var copyText = document.getElementById("myInput40");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip40");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc40() {
+  var tooltip = document.getElementById("myTooltip40");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction41() {
+  var copyText = document.getElementById("myInput41");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip41");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL41() {
+  var copyText = document.getElementById("myInput41");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip41");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc41() {
+  var tooltip = document.getElementById("myTooltip41");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction42() {
+  var copyText = document.getElementById("myInput42");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip42");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL42() {
+  var copyText = document.getElementById("myInput42");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip42");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc42() {
+  var tooltip = document.getElementById("myTooltip42");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction43() {
+  var copyText = document.getElementById("myInput43");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip43");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL43() {
+  var copyText = document.getElementById("myInput43");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip43");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc43() {
+  var tooltip = document.getElementById("myTooltip43");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction44() {
+  var copyText = document.getElementById("myInput44");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip44");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL44() {
+  var copyText = document.getElementById("myInput44");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip44");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc44() {
+  var tooltip = document.getElementById("myTooltip44");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction45() {
+  var copyText = document.getElementById("myInput45");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip45");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL45() {
+  var copyText = document.getElementById("myInput45");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip45");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc45() {
+  var tooltip = document.getElementById("myTooltip45");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction46() {
+  var copyText = document.getElementById("myInput46");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip46");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL46() {
+  var copyText = document.getElementById("myInput46");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip46");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc46() {
+  var tooltip = document.getElementById("myTooltip46");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction47() {
+  var copyText = document.getElementById("myInput47");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip47");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL47() {
+  var copyText = document.getElementById("myInput47");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip47");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc47() {
+  var tooltip = document.getElementById("myTooltip47");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction48() {
+  var copyText = document.getElementById("myInput48");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip48");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL48() {
+  var copyText = document.getElementById("myInput48");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip48");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc48() {
+  var tooltip = document.getElementById("myTooltip48");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction49() {
+  var copyText = document.getElementById("myInput49");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip49");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL49() {
+  var copyText = document.getElementById("myInput49");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip49");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc49() {
+  var tooltip = document.getElementById("myTooltip49");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction50() {
+  var copyText = document.getElementById("myInput50");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip50");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL50() {
+  var copyText = document.getElementById("myInput50");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip50");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc50() {
+  var tooltip = document.getElementById("myTooltip50");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction51() {
+  var copyText = document.getElementById("myInput51");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip51");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL51() {
+  var copyText = document.getElementById("myInput51");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip51");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc51() {
+  var tooltip = document.getElementById("myTooltip51");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction52() {
+  var copyText = document.getElementById("myInput52");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip52");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL52() {
+  var copyText = document.getElementById("myInput52");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip52");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc52() {
+  var tooltip = document.getElementById("myTooltip52");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction53() {
+  var copyText = document.getElementById("myInput53");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip53");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL53() {
+  var copyText = document.getElementById("myInput53");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip53");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc53() {
+  var tooltip = document.getElementById("myTooltip53");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction54() {
+  var copyText = document.getElementById("myInput54");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip54");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL54() {
+  var copyText = document.getElementById("myInput54");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip54");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc54() {
+  var tooltip = document.getElementById("myTooltip54");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction55() {
+  var copyText = document.getElementById("myInput55");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip55");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL55() {
+  var copyText = document.getElementById("myInput55");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip55");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc55() {
+  var tooltip = document.getElementById("myTooltip55");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction56() {
+  var copyText = document.getElementById("myInput56");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip56");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL56() {
+  var copyText = document.getElementById("myInput56");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip56");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc56() {
+  var tooltip = document.getElementById("myTooltip56");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction57() {
+  var copyText = document.getElementById("myInput57");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip57");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL57() {
+  var copyText = document.getElementById("myInput57");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip57");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc57() {
+  var tooltip = document.getElementById("myTooltip57");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction58() {
+  var copyText = document.getElementById("myInput58");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip58");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL58() {
+  var copyText = document.getElementById("myInput58");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip58");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc58() {
+  var tooltip = document.getElementById("myTooltip58");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction59() {
+  var copyText = document.getElementById("myInput59");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip59");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL59() {
+  var copyText = document.getElementById("myInput59");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip59");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc59() {
+  var tooltip = document.getElementById("myTooltip59");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction60() {
+  var copyText = document.getElementById("myInput60");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip60");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL60() {
+  var copyText = document.getElementById("myInput60");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip60");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc60() {
+  var tooltip = document.getElementById("myTooltip60");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction61() {
+  var copyText = document.getElementById("myInput61");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip61");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL61() {
+  var copyText = document.getElementById("myInput61");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip61");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc61() {
+  var tooltip = document.getElementById("myTooltip61");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction62() {
+  var copyText = document.getElementById("myInput62");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip62");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL62() {
+  var copyText = document.getElementById("myInput62");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip62");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc62() {
+  var tooltip = document.getElementById("myTooltip62");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction63() {
+  var copyText = document.getElementById("myInput63");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip63");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL63() {
+  var copyText = document.getElementById("myInput63");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip63");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc63() {
+  var tooltip = document.getElementById("myTooltip63");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction64() {
+  var copyText = document.getElementById("myInput64");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip64");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL64() {
+  var copyText = document.getElementById("myInput64");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip64");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc64() {
+  var tooltip = document.getElementById("myTooltip64");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction65() {
+  var copyText = document.getElementById("myInput65");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip65");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL65() {
+  var copyText = document.getElementById("myInput65");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip65");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc65() {
+  var tooltip = document.getElementById("myTooltip65");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction66() {
+  var copyText = document.getElementById("myInput66");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip66");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL66() {
+  var copyText = document.getElementById("myInput66");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip66");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc66() {
+  var tooltip = document.getElementById("myTooltip66");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction67() {
+  var copyText = document.getElementById("myInput67");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip67");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL67() {
+  var copyText = document.getElementById("myInput67");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip67");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc67() {
+  var tooltip = document.getElementById("myTooltip67");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction68() {
+  var copyText = document.getElementById("myInput68");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip68");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL68() {
+  var copyText = document.getElementById("myInput68");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip68");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc68() {
+  var tooltip = document.getElementById("myTooltip68");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction69() {
+  var copyText = document.getElementById("myInput69");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip69");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL69() {
+  var copyText = document.getElementById("myInput69");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip69");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc69() {
+  var tooltip = document.getElementById("myTooltip69");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction70() {
+  var copyText = document.getElementById("myInput70");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip70");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL70() {
+  var copyText = document.getElementById("myInput70");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip70");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc70() {
+  var tooltip = document.getElementById("myTooltip70");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction71() {
+  var copyText = document.getElementById("myInput71");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip71");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL71() {
+  var copyText = document.getElementById("myInput71");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip71");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc71() {
+  var tooltip = document.getElementById("myTooltip71");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction72() {
+  var copyText = document.getElementById("myInput72");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip72");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL72() {
+  var copyText = document.getElementById("myInput72");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip72");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc72() {
+  var tooltip = document.getElementById("myTooltip72");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction73() {
+  var copyText = document.getElementById("myInput73");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip73");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL73() {
+  var copyText = document.getElementById("myInput73");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip73");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc73() {
+  var tooltip = document.getElementById("myTooltip73");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction74() {
+  var copyText = document.getElementById("myInput74");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip74");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL74() {
+  var copyText = document.getElementById("myInput74");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip74");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc74() {
+  var tooltip = document.getElementById("myTooltip74");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction75() {
+  var copyText = document.getElementById("myInput75");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip75");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL75() {
+  var copyText = document.getElementById("myInput75");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip75");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc75() {
+  var tooltip = document.getElementById("myTooltip75");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction76() {
+  var copyText = document.getElementById("myInput76");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip76");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL76() {
+  var copyText = document.getElementById("myInput76");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip76");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc76() {
+  var tooltip = document.getElementById("myTooltip76");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction77() {
+  var copyText = document.getElementById("myInput77");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip77");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL77() {
+  var copyText = document.getElementById("myInput77");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip77");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc77() {
+  var tooltip = document.getElementById("myTooltip77");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction78() {
+  var copyText = document.getElementById("myInput78");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip78");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL78() {
+  var copyText = document.getElementById("myInput78");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip78");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc78() {
+  var tooltip = document.getElementById("myTooltip78");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction79() {
+  var copyText = document.getElementById("myInput79");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip79");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL79() {
+  var copyText = document.getElementById("myInput79");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip79");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc79() {
+  var tooltip = document.getElementById("myTooltip79");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction80() {
+  var copyText = document.getElementById("myInput80");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip80");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL80() {
+  var copyText = document.getElementById("myInput80");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip80");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc80() {
+  var tooltip = document.getElementById("myTooltip80");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction81() {
+  var copyText = document.getElementById("myInput81");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip81");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL81() {
+  var copyText = document.getElementById("myInput81");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip81");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc81() {
+  var tooltip = document.getElementById("myTooltip81");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction82() {
+  var copyText = document.getElementById("myInput82");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip82");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL82() {
+  var copyText = document.getElementById("myInput82");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip82");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc82() {
+  var tooltip = document.getElementById("myTooltip82");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction83() {
+  var copyText = document.getElementById("myInput83");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip83");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL83() {
+  var copyText = document.getElementById("myInput83");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip83");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc83() {
+  var tooltip = document.getElementById("myTooltip83");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction84() {
+  var copyText = document.getElementById("myInput84");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip84");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL84() {
+  var copyText = document.getElementById("myInput84");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip84");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc84() {
+  var tooltip = document.getElementById("myTooltip84");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction85() {
+  var copyText = document.getElementById("myInput85");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip85");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL85() {
+  var copyText = document.getElementById("myInput85");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip85");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc85() {
+  var tooltip = document.getElementById("myTooltip85");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction86() {
+  var copyText = document.getElementById("myInput86");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip86");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL86() {
+  var copyText = document.getElementById("myInput86");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip86");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc86() {
+  var tooltip = document.getElementById("myTooltip86");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction87() {
+  var copyText = document.getElementById("myInput87");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip87");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL87() {
+  var copyText = document.getElementById("myInput87");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip87");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc87() {
+  var tooltip = document.getElementById("myTooltip87");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction88() {
+  var copyText = document.getElementById("myInput88");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip88");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL88() {
+  var copyText = document.getElementById("myInput88");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip88");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc88() {
+  var tooltip = document.getElementById("myTooltip88");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction89() {
+  var copyText = document.getElementById("myInput89");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip89");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL89() {
+  var copyText = document.getElementById("myInput89");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip89");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc89() {
+  var tooltip = document.getElementById("myTooltip89");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction90() {
+  var copyText = document.getElementById("myInput90");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip90");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL90() {
+  var copyText = document.getElementById("myInput90");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip90");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc90() {
+  var tooltip = document.getElementById("myTooltip90");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction91() {
+  var copyText = document.getElementById("myInput91");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip91");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL91() {
+  var copyText = document.getElementById("myInput91");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip91");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc91() {
+  var tooltip = document.getElementById("myTooltip91");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction92() {
+  var copyText = document.getElementById("myInput92");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip92");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL92() {
+  var copyText = document.getElementById("myInput92");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip92");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc92() {
+  var tooltip = document.getElementById("myTooltip92");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction93() {
+  var copyText = document.getElementById("myInput93");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip93");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL93() {
+  var copyText = document.getElementById("myInput93");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip93");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc93() {
+  var tooltip = document.getElementById("myTooltip93");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction94() {
+  var copyText = document.getElementById("myInput94");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip94");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL94() {
+  var copyText = document.getElementById("myInput94");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip94");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc94() {
+  var tooltip = document.getElementById("myTooltip94");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction95() {
+  var copyText = document.getElementById("myInput95");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip95");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL95() {
+  var copyText = document.getElementById("myInput95");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip95");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc95() {
+  var tooltip = document.getElementById("myTooltip95");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction96() {
+  var copyText = document.getElementById("myInput96");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip96");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL96() {
+  var copyText = document.getElementById("myInput96");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip96");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc96() {
+  var tooltip = document.getElementById("myTooltip96");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction97() {
+  var copyText = document.getElementById("myInput97");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip97");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL97() {
+  var copyText = document.getElementById("myInput97");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip97");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc97() {
+  var tooltip = document.getElementById("myTooltip97");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction98() {
+  var copyText = document.getElementById("myInput98");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip98");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL98() {
+  var copyText = document.getElementById("myInput98");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip98");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc98() {
+  var tooltip = document.getElementById("myTooltip98");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction99() {
+  var copyText = document.getElementById("myInput99");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip99");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL99() {
+  var copyText = document.getElementById("myInput99");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip99");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc99() {
+  var tooltip = document.getElementById("myTooltip99");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function myFunction100() {
+  var copyText = document.getElementById("myInput100");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip1 = document.getElementById("myTooltip100");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function myFunctionORIGINAL100() {
+  var copyText = document.getElementById("myInput100");
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  var tooltip = document.getElementById("myTooltip100");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc100() {
+  var tooltip = document.getElementById("myTooltip100");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+document.write(ticker[0]);
+
+document.write("<input style='display:none' type='text' value='" + links[0] + "' id='myInput' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction()' onmouseout='outFunc()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext' id='myTooltip'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[0] + "/community?p=" + ticker[0] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+
+document.write(ticker[1]);
+
+document.write("<input style='display:none' type='text' value='" + links[1] + "' id='myInput1' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip1 w3-mobile'><button onclick='myFunction1()' onmouseout='outFunc1()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext1' id='myTooltip1'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[1] + "/community?p=" + ticker[1] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+
+document.write(ticker[2]);
+
+document.write("<input style='display:none' type='text' value='" + links[2] + "' id='myInput2' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip2 w3-mobile'><button onclick='myFunction2()' onmouseout='outFunc2()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext2' id='myTooltip2'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[2] + "/community?p=" + ticker[2] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+
+document.write(ticker[3]);
+
+document.write("<input style='display:none' type='text' value='" + links[3] + "' id='myInput3' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip3 w3-mobile'><button onclick='myFunction3()' onmouseout='outFunc3()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext3' id='myTooltip3'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[3] + "/community?p=" + ticker[3] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+
+document.write(ticker[4]);
+
+document.write("<input style='display:none' type='text' value='" + links[4] + "' id='myInput4' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip4 w3-mobile'><button onclick='myFunction4()' onmouseout='outFunc4()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext4' id='myTooltip4'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[4] + "/community?p=" + ticker[4] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+
+document.write(ticker[5]);
+
+document.write("<input style='display:none' type='text' value='" + links[5] + "' id='myInput5' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction5()' onmouseout='outFunc5()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext5' id='myTooltip5'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[5] + "/community?p=" + ticker[5] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[6]);
+
+document.write("<input style='display:none' type='text' value='" + links[6] + "' id='myInput6' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction6()' onmouseout='outFunc6()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext6' id='myTooltip6'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[6] + "/community?p=" + ticker[6] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[7]);
+
+document.write("<input style='display:none' type='text' value='" + links[7] + "' id='myInput7' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction7()' onmouseout='outFunc7()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext7' id='myTooltip7'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[7] + "/community?p=" + ticker[7] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[8]);
+
+document.write("<input style='display:none' type='text' value='" + links[8] + "' id='myInput8' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction8()' onmouseout='outFunc8()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext8' id='myTooltip8'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[8] + "/community?p=" + ticker[8] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[9]);
+
+document.write("<input style='display:none' type='text' value='" + links[9] + "' id='myInput9' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction9()' onmouseout='outFunc9()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext9' id='myTooltip9'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[9] + "/community?p=" + ticker[9] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[10]);
+
+document.write("<input style='display:none' type='text' value='" + links[10] + "' id='myInput10' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction10()' onmouseout='outFunc10()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext10' id='myTooltip10'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[10] + "/community?p=" + ticker[10] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[11]);
+
+document.write("<input style='display:none' type='text' value='" + links[11] + "' id='myInput11' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction11()' onmouseout='outFunc11()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext11' id='myTooltip11'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[11] + "/community?p=" + ticker[11] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[12]);
+
+document.write("<input style='display:none' type='text' value='" + links[12] + "' id='myInput12' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction12()' onmouseout='outFunc12()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext12' id='myTooltip12'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[12] + "/community?p=" + ticker[12] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[13]);
+
+document.write("<input style='display:none' type='text' value='" + links[13] + "' id='myInput13' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction13()' onmouseout='outFunc13()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext13' id='myTooltip13'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[13] + "/community?p=" + ticker[13] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[14]);
+
+document.write("<input style='display:none' type='text' value='" + links[14] + "' id='myInput14' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction14()' onmouseout='outFunc14()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext14' id='myTooltip14'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[14] + "/community?p=" + ticker[14] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[15]);
+
+document.write("<input style='display:none' type='text' value='" + links[15] + "' id='myInput15' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction15()' onmouseout='outFunc15()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext15' id='myTooltip15'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[15] + "/community?p=" + ticker[15] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[16]);
+
+document.write("<input style='display:none' type='text' value='" + links[16] + "' id='myInput16' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction16()' onmouseout='outFunc16()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext16' id='myTooltip16'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[16] + "/community?p=" + ticker[16] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[17]);
+
+document.write("<input style='display:none' type='text' value='" + links[17] + "' id='myInput17' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction17()' onmouseout='outFunc17()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext17' id='myTooltip17'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[17] + "/community?p=" + ticker[17] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[18]);
+
+document.write("<input style='display:none' type='text' value='" + links[18] + "' id='myInput18' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction18()' onmouseout='outFunc18()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext18' id='myTooltip18'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[18] + "/community?p=" + ticker[18] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[19]);
+
+document.write("<input style='display:none' type='text' value='" + links[19] + "' id='myInput19' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction19()' onmouseout='outFunc19()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext19' id='myTooltip19'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[19] + "/community?p=" + ticker[19] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[20]);
+
+document.write("<input style='display:none' type='text' value='" + links[20] + "' id='myInput20' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction20()' onmouseout='outFunc20()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext20' id='myTooltip20'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[20] + "/community?p=" + ticker[20] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[21]);
+
+document.write("<input style='display:none' type='text' value='" + links[21] + "' id='myInput21' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction21()' onmouseout='outFunc21()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext21' id='myTooltip21'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[21] + "/community?p=" + ticker[21] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[22]);
+
+document.write("<input style='display:none' type='text' value='" + links[22] + "' id='myInput22' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction22()' onmouseout='outFunc22()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext22' id='myTooltip22'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[22] + "/community?p=" + ticker[22] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[23]);
+
+document.write("<input style='display:none' type='text' value='" + links[23] + "' id='myInput23' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction23()' onmouseout='outFunc23()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext23' id='myTooltip23'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[23] + "/community?p=" + ticker[23] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[24]);
+
+document.write("<input style='display:none' type='text' value='" + links[24] + "' id='myInput24' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction24()' onmouseout='outFunc24()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext24' id='myTooltip24'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[24] + "/community?p=" + ticker[24] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[25]);
+
+document.write("<input style='display:none' type='text' value='" + links[25] + "' id='myInput25' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction25()' onmouseout='outFunc25()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext25' id='myTooltip25'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[25] + "/community?p=" + ticker[25] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[26]);
+
+document.write("<input style='display:none' type='text' value='" + links[26] + "' id='myInput26' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction26()' onmouseout='outFunc26()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext26' id='myTooltip26'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[26] + "/community?p=" + ticker[26] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[27]);
+
+document.write("<input style='display:none' type='text' value='" + links[27] + "' id='myInput27' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction27()' onmouseout='outFunc27()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext27' id='myTooltip27'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[27] + "/community?p=" + ticker[27] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[28]);
+
+document.write("<input style='display:none' type='text' value='" + links[28] + "' id='myInput28' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction28()' onmouseout='outFunc28()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext28' id='myTooltip28'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[28] + "/community?p=" + ticker[28] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[29]);
+
+document.write("<input style='display:none' type='text' value='" + links[29] + "' id='myInput29' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction29()' onmouseout='outFunc29()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext29' id='myTooltip29'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[29] + "/community?p=" + ticker[29] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[30]);
+
+document.write("<input style='display:none' type='text' value='" + links[30] + "' id='myInput30' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction30()' onmouseout='outFunc30()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext30' id='myTooltip30'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[30] + "/community?p=" + ticker[30] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[31]);
+
+document.write("<input style='display:none' type='text' value='" + links[31] + "' id='myInput31' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction31()' onmouseout='outFunc31()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext31' id='myTooltip31'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[31] + "/community?p=" + ticker[31] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[32]);
+
+document.write("<input style='display:none' type='text' value='" + links[32] + "' id='myInput32' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction32()' onmouseout='outFunc32()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext32' id='myTooltip32'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[32] + "/community?p=" + ticker[32] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[33]);
+
+document.write("<input style='display:none' type='text' value='" + links[33] + "' id='myInput33' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction33()' onmouseout='outFunc33()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext33' id='myTooltip33'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[33] + "/community?p=" + ticker[33] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[34]);
+
+document.write("<input style='display:none' type='text' value='" + links[34] + "' id='myInput34' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction34()' onmouseout='outFunc34()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext34' id='myTooltip34'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[34] + "/community?p=" + ticker[34] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[35]);
+
+document.write("<input style='display:none' type='text' value='" + links[35] + "' id='myInput35' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction35()' onmouseout='outFunc35()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext35' id='myTooltip35'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[35] + "/community?p=" + ticker[35] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[36]);
+
+document.write("<input style='display:none' type='text' value='" + links[36] + "' id='myInput36' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction36()' onmouseout='outFunc36()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext36' id='myTooltip36'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[36] + "/community?p=" + ticker[36] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[37]);
+
+document.write("<input style='display:none' type='text' value='" + links[37] + "' id='myInput37' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction37()' onmouseout='outFunc37()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext37' id='myTooltip37'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[37] + "/community?p=" + ticker[37] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[38]);
+
+document.write("<input style='display:none' type='text' value='" + links[38] + "' id='myInput38' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction38()' onmouseout='outFunc38()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext38' id='myTooltip38'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[38] + "/community?p=" + ticker[38] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[39]);
+
+document.write("<input style='display:none' type='text' value='" + links[39] + "' id='myInput39' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction39()' onmouseout='outFunc39()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext39' id='myTooltip39'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[39] + "/community?p=" + ticker[39] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[40]);
+
+document.write("<input style='display:none' type='text' value='" + links[40] + "' id='myInput40' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction40()' onmouseout='outFunc40()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext40' id='myTooltip40'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[40] + "/community?p=" + ticker[40] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[41]);
+
+document.write("<input style='display:none' type='text' value='" + links[41] + "' id='myInput41' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction41()' onmouseout='outFunc41()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext41' id='myTooltip41'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[41] + "/community?p=" + ticker[41] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[42]);
+
+document.write("<input style='display:none' type='text' value='" + links[42] + "' id='myInput42' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction42()' onmouseout='outFunc42()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext42' id='myTooltip42'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[42] + "/community?p=" + ticker[42] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[43]);
+
+document.write("<input style='display:none' type='text' value='" + links[43] + "' id='myInput43' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction43()' onmouseout='outFunc43()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext43' id='myTooltip43'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[43] + "/community?p=" + ticker[43] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[44]);
+
+document.write("<input style='display:none' type='text' value='" + links[44] + "' id='myInput44' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction44()' onmouseout='outFunc44()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext44' id='myTooltip44'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[44] + "/community?p=" + ticker[44] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[45]);
+
+document.write("<input style='display:none' type='text' value='" + links[45] + "' id='myInput45' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction45()' onmouseout='outFunc45()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext45' id='myTooltip45'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[45] + "/community?p=" + ticker[45] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[46]);
+
+document.write("<input style='display:none' type='text' value='" + links[46] + "' id='myInput46' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction46()' onmouseout='outFunc46()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext46' id='myTooltip46'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[46] + "/community?p=" + ticker[46] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[47]);
+
+document.write("<input style='display:none' type='text' value='" + links[47] + "' id='myInput47' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction47()' onmouseout='outFunc47()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext47' id='myTooltip47'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[47] + "/community?p=" + ticker[47] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[48]);
+
+document.write("<input style='display:none' type='text' value='" + links[48] + "' id='myInput48' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction48()' onmouseout='outFunc48()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext48' id='myTooltip48'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[48] + "/community?p=" + ticker[48] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[49]);
+
+document.write("<input style='display:none' type='text' value='" + links[49] + "' id='myInput49' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction49()' onmouseout='outFunc49()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext49' id='myTooltip49'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[49] + "/community?p=" + ticker[49] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[50]);
+
+document.write("<input style='display:none' type='text' value='" + links[50] + "' id='myInput50' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction50()' onmouseout='outFunc50()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext50' id='myTooltip50'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[50] + "/community?p=" + ticker[50] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[51]);
+
+document.write("<input style='display:none' type='text' value='" + links[51] + "' id='myInput51' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction51()' onmouseout='outFunc51()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext51' id='myTooltip51'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[51] + "/community?p=" + ticker[51] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[52]);
+
+document.write("<input style='display:none' type='text' value='" + links[52] + "' id='myInput52' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction52()' onmouseout='outFunc52()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext52' id='myTooltip52'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[52] + "/community?p=" + ticker[52] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[53]);
+
+document.write("<input style='display:none' type='text' value='" + links[53] + "' id='myInput53' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction53()' onmouseout='outFunc53()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext53' id='myTooltip53'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[53] + "/community?p=" + ticker[53] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[54]);
+
+document.write("<input style='display:none' type='text' value='" + links[54] + "' id='myInput54' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction54()' onmouseout='outFunc54()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext54' id='myTooltip54'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[54] + "/community?p=" + ticker[54] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[55]);
+
+document.write("<input style='display:none' type='text' value='" + links[55] + "' id='myInput55' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction55()' onmouseout='outFunc55()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext55' id='myTooltip55'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[55] + "/community?p=" + ticker[55] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[56]);
+
+document.write("<input style='display:none' type='text' value='" + links[56] + "' id='myInput56' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction56()' onmouseout='outFunc56()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext56' id='myTooltip56'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[56] + "/community?p=" + ticker[56] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[57]);
+
+document.write("<input style='display:none' type='text' value='" + links[57] + "' id='myInput57' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction57()' onmouseout='outFunc57()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext57' id='myTooltip57'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[57] + "/community?p=" + ticker[57] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[58]);
+
+document.write("<input style='display:none' type='text' value='" + links[58] + "' id='myInput58' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction58()' onmouseout='outFunc58()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext58' id='myTooltip58'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[58] + "/community?p=" + ticker[58] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[59]);
+
+document.write("<input style='display:none' type='text' value='" + links[59] + "' id='myInput59' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction59()' onmouseout='outFunc59()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext59' id='myTooltip59'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[59] + "/community?p=" + ticker[59] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[60]);
+
+document.write("<input style='display:none' type='text' value='" + links[60] + "' id='myInput60' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction60()' onmouseout='outFunc60()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext60' id='myTooltip60'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[60] + "/community?p=" + ticker[60] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[61]);
+
+document.write("<input style='display:none' type='text' value='" + links[61] + "' id='myInput61' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction61()' onmouseout='outFunc61()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext61' id='myTooltip61'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[61] + "/community?p=" + ticker[61] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[62]);
+
+document.write("<input style='display:none' type='text' value='" + links[62] + "' id='myInput62' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction62()' onmouseout='outFunc62()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext62' id='myTooltip62'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[62] + "/community?p=" + ticker[62] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[63]);
+
+document.write("<input style='display:none' type='text' value='" + links[63] + "' id='myInput63' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction63()' onmouseout='outFunc63()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext63' id='myTooltip63'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[63] + "/community?p=" + ticker[63] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[64]);
+
+document.write("<input style='display:none' type='text' value='" + links[64] + "' id='myInput64' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction64()' onmouseout='outFunc64()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext64' id='myTooltip64'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[64] + "/community?p=" + ticker[64] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[65]);
+
+document.write("<input style='display:none' type='text' value='" + links[65] + "' id='myInput65' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction65()' onmouseout='outFunc65()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext65' id='myTooltip65'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[65] + "/community?p=" + ticker[65] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[66]);
+
+document.write("<input style='display:none' type='text' value='" + links[66] + "' id='myInput66' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction66()' onmouseout='outFunc66()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext66' id='myTooltip66'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[66] + "/community?p=" + ticker[66] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[67]);
+
+document.write("<input style='display:none' type='text' value='" + links[67] + "' id='myInput67' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction67()' onmouseout='outFunc67()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext67' id='myTooltip67'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[67] + "/community?p=" + ticker[67] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[68]);
+
+document.write("<input style='display:none' type='text' value='" + links[68] + "' id='myInput68' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction68()' onmouseout='outFunc68()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext68' id='myTooltip68'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[68] + "/community?p=" + ticker[68] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[69]);
+
+document.write("<input style='display:none' type='text' value='" + links[69] + "' id='myInput69' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction69()' onmouseout='outFunc69()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext69' id='myTooltip69'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[69] + "/community?p=" + ticker[69] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[70]);
+
+document.write("<input style='display:none' type='text' value='" + links[70] + "' id='myInput70' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction70()' onmouseout='outFunc70()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext70' id='myTooltip70'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[70] + "/community?p=" + ticker[70] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[71]);
+
+document.write("<input style='display:none' type='text' value='" + links[71] + "' id='myInput71' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction71()' onmouseout='outFunc71()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext71' id='myTooltip71'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[71] + "/community?p=" + ticker[71] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[72]);
+
+document.write("<input style='display:none' type='text' value='" + links[72] + "' id='myInput72' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction72()' onmouseout='outFunc72()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext72' id='myTooltip72'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[72] + "/community?p=" + ticker[72] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[73]);
+
+document.write("<input style='display:none' type='text' value='" + links[73] + "' id='myInput73' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction73()' onmouseout='outFunc73()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext73' id='myTooltip73'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[73] + "/community?p=" + ticker[73] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[74]);
+
+document.write("<input style='display:none' type='text' value='" + links[74] + "' id='myInput74' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction74()' onmouseout='outFunc74()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext74' id='myTooltip74'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[74] + "/community?p=" + ticker[74] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[75]);
+
+document.write("<input style='display:none' type='text' value='" + links[75] + "' id='myInput75' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction75()' onmouseout='outFunc75()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext75' id='myTooltip75'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[75] + "/community?p=" + ticker[75] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[76]);
+
+document.write("<input style='display:none' type='text' value='" + links[76] + "' id='myInput76' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction76()' onmouseout='outFunc76()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext76' id='myTooltip76'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[76] + "/community?p=" + ticker[76] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[77]);
+
+document.write("<input style='display:none' type='text' value='" + links[77] + "' id='myInput77' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction77()' onmouseout='outFunc77()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext77' id='myTooltip77'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[77] + "/community?p=" + ticker[77] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[78]);
+
+document.write("<input style='display:none' type='text' value='" + links[78] + "' id='myInput78' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction78()' onmouseout='outFunc78()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext78' id='myTooltip78'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[78] + "/community?p=" + ticker[78] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[79]);
+
+document.write("<input style='display:none' type='text' value='" + links[79] + "' id='myInput79' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction79()' onmouseout='outFunc79()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext79' id='myTooltip79'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[79] + "/community?p=" + ticker[79] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[80]);
+
+document.write("<input style='display:none' type='text' value='" + links[80] + "' id='myInput80' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction80()' onmouseout='outFunc80()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext80' id='myTooltip80'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[80] + "/community?p=" + ticker[80] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[81]);
+
+document.write("<input style='display:none' type='text' value='" + links[81] + "' id='myInput81' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction81()' onmouseout='outFunc81()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext81' id='myTooltip81'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[81] + "/community?p=" + ticker[81] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[82]);
+
+document.write("<input style='display:none' type='text' value='" + links[82] + "' id='myInput82' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction82()' onmouseout='outFunc82()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext82' id='myTooltip82'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[82] + "/community?p=" + ticker[82] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[83]);
+
+document.write("<input style='display:none' type='text' value='" + links[83] + "' id='myInput83' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction83()' onmouseout='outFunc83()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext83' id='myTooltip83'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[83] + "/community?p=" + ticker[83] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[84]);
+
+document.write("<input style='display:none' type='text' value='" + links[84] + "' id='myInput84' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction84()' onmouseout='outFunc84()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext84' id='myTooltip84'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[84] + "/community?p=" + ticker[84] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[85]);
+
+document.write("<input style='display:none' type='text' value='" + links[85] + "' id='myInput85' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction85()' onmouseout='outFunc85()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext85' id='myTooltip85'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[85] + "/community?p=" + ticker[85] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[86]);
+
+document.write("<input style='display:none' type='text' value='" + links[86] + "' id='myInput86' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction86()' onmouseout='outFunc86()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext86' id='myTooltip86'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[86] + "/community?p=" + ticker[86] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[87]);
+
+document.write("<input style='display:none' type='text' value='" + links[87] + "' id='myInput87' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction87()' onmouseout='outFunc87()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext87' id='myTooltip87'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[87] + "/community?p=" + ticker[87] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[88]);
+
+document.write("<input style='display:none' type='text' value='" + links[88] + "' id='myInput88' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction88()' onmouseout='outFunc88()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext88' id='myTooltip88'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[88] + "/community?p=" + ticker[88] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[89]);
+
+document.write("<input style='display:none' type='text' value='" + links[89] + "' id='myInput89' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction89()' onmouseout='outFunc89()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext89' id='myTooltip89'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[89] + "/community?p=" + ticker[89] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[90]);
+
+document.write("<input style='display:none' type='text' value='" + links[90] + "' id='myInput90' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction90()' onmouseout='outFunc90()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext90' id='myTooltip90'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[90] + "/community?p=" + ticker[90] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[91]);
+
+document.write("<input style='display:none' type='text' value='" + links[91] + "' id='myInput91' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction91()' onmouseout='outFunc91()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext91' id='myTooltip91'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[91] + "/community?p=" + ticker[91] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[92]);
+
+document.write("<input style='display:none' type='text' value='" + links[92] + "' id='myInput92' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction92()' onmouseout='outFunc92()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext92' id='myTooltip92'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[92] + "/community?p=" + ticker[92] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[93]);
+
+document.write("<input style='display:none' type='text' value='" + links[93] + "' id='myInput93' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction93()' onmouseout='outFunc93()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext93' id='myTooltip93'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[93] + "/community?p=" + ticker[93] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[94]);
+
+document.write("<input style='display:none' type='text' value='" + links[94] + "' id='myInput94' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction94()' onmouseout='outFunc94()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext94' id='myTooltip94'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[94] + "/community?p=" + ticker[94] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[95]);
+
+document.write("<input style='display:none' type='text' value='" + links[95] + "' id='myInput95' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction95()' onmouseout='outFunc95()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext95' id='myTooltip95'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[95] + "/community?p=" + ticker[95] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[96]);
+
+document.write("<input style='display:none' type='text' value='" + links[96] + "' id='myInput96' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction96()' onmouseout='outFunc96()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext96' id='myTooltip96'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[96] + "/community?p=" + ticker[96] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[97]);
+
+document.write("<input style='display:none' type='text' value='" + links[97] + "' id='myInput97' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction97()' onmouseout='outFunc97()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext97' id='myTooltip97'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[97] + "/community?p=" + ticker[97] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[98]);
+
+document.write("<input style='display:none' type='text' value='" + links[98] + "' id='myInput98' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction98()' onmouseout='outFunc98()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext98' id='myTooltip98'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[98] + "/community?p=" + ticker[98] + " target='_blank'><button>yahoo</button></a></button>");
+
+document.write("<br><br><br><hr><br><br>");
+document.write(ticker[99]);
+
+document.write("<input style='display:none' type='text' value='" + links[99] + "' id='myInput99' class='w3-input w3-border w3-left w3-margin-right w3-mobile' style='width:auto'> <div class='tooltip w3-mobile'><button onclick='myFunction99()' onmouseout='outFunc99()' class='w3-button w3-border w3-light-grey w3-left w3-mobile'> <span class='tooltiptext99' id='myTooltip99'>Copy to clipboard</span></button> </div>");
+
+document.write("<a href=https://finance.yahoo.com/quote/" + ticker[99] + "/community?p=" + ticker[99] + " target='_blank'><button>yahoo</button></a></button>");
+
+</script>
+
+
+</meta>
+</meta>
+</body>
+</html>
